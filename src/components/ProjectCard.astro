@@ -1,0 +1,36 @@
+---
+import type { Project } from "../data/projects";
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+---
+
+<article class="border-t border-line py-10">
+  <div class="flex items-baseline justify-between gap-4">
+    <h3 class="font-serif text-2xl">{project.title}</h3>
+    <span class="shrink-0 text-sm text-muted">
+      {project.inProgress ? "In progress" : project.year}
+    </span>
+  </div>
+
+  <p class="mt-1 text-base text-muted">{project.subtitle}</p>
+
+  <p class="mt-4 text-base leading-relaxed">{project.description}</p>
+
+  <div class="mt-5 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
+    {
+      project.links.map((l) => (
+        <a
+          href={l.href}
+          class="border-b border-line pb-0.5 transition-colors hover:border-fg"
+        >
+          {l.label}
+        </a>
+      ))
+    }
+    <span class="text-muted">{project.tags.join(" · ")}</span>
+  </div>
+</article>
