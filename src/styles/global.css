@@ -1,1 +1,26 @@
 @import "tailwindcss";
+
+@import "@fontsource-variable/newsreader";
+@import "@fontsource-variable/inter";
+
+@theme {
+  --font-serif: "Newsreader Variable", Georgia, serif;
+  --font-sans: "Inter Variable", system-ui, sans-serif;
+
+  --color-bg: #fbfbf9;
+  --color-fg: #16161a;
+  --color-muted: #6b6b73;
+  --color-accent: #16161a;
+  --color-line: #e4e4df;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
