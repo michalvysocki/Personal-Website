@@ -12,6 +12,11 @@
   --color-muted: #6b6b73;
   --color-accent: #16161a;
   --color-line: #e4e4df;
+
+  --color-inverse-bg: #1c1c20;
+  --color-inverse-fg: #eeeeea;
+  --color-inverse-muted: #8a8a92;
+  --color-inverse-line: #35353c;
 }
 
 html {
