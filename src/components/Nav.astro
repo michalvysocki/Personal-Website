@@ -1,0 +1,30 @@
+---
+const links = [
+  { label: "Projects", href: "/projects" },
+  { label: "About", href: "/about" },
+];
+
+const path = Astro.url.pathname;
+---
+
+<nav class="mx-auto flex max-w-2xl items-baseline justify-between px-6 py-8">
+  <a href="/" class="font-serif text-lg">Michał Wysocki</a>
+
+  <div class="flex gap-6 text-sm">
+    {
+      links.map((l) => (
+        <a
+          href={l.href}
+          class:list={[
+            "border-b pb-0.5 transition-colors",
+            path.startsWith(l.href)
+              ? "border-fg"
+              : "border-transparent hover:border-line",
+          ]}
+        >
+          {l.label}
+        </a>
+      ))
+    }
+  </div>
+</nav>
