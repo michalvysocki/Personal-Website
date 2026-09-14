@@ -10,7 +10,7 @@ interface Props {
 
 const {
   title = "Michał Wysocki",
-  description = "Machine learning for perception and prediction in autonomous systems.",
+  description = "I build machine learning systems that model and predict the real world.",
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site);
@@ -34,6 +34,7 @@ const ogImage = new URL("/og.png", Astro.site);
     <meta name="twitter:card" content="summary_large_image" />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="sitemap" href="/sitemap-index.xml" />
   </head>
   <body>
