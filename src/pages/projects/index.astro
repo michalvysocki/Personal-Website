@@ -1,0 +1,19 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import ProjectCard from "../../components/ProjectCard.astro";
+
+const projects = (await getCollection("projects")).sort(
+  (a, b) => (a.data.order ?? 0) - (b.data.order ?? 0),
+);
+---
+
+<Base title="Projects — Michał Wysocki">
+  <section class="mx-auto max-w-2xl px-6 py-16">
+    <h1 class="font-serif text-4xl">Projects</h1>
+
+    <div class="mt-10">
+      {projects.map((p) => <ProjectCard project={p} />)}
+    </div>
+  </section>
+</Base>

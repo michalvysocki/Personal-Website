@@ -15,4 +15,13 @@ const featured = (await getCollection("projects"))
   <div class="mt-6">
     {featured.map((p) => <ProjectCard project={p} />)}
   </div>
+
+    <p class="mt-8 text-sm">
+      <a
+        href="/projects"
+        class="border-b border-line pb-0.5 transition-colors hover:border-fg"
+      >
+        All projects
+      </a>
+    </p>
 </section>
