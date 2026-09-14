@@ -7,7 +7,7 @@ const featured = (await getCollection("projects"))
   .sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
 ---
 
-<section class="mx-auto max-w-2xl px-6 py-16">
+<section class="reveal mx-auto max-w-2xl px-6 py-16">
   <h2 class="font-serif text-sm uppercase tracking-widest text-muted">
     Selected Work
   </h2>
