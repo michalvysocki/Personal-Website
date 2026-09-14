@@ -2,27 +2,32 @@
 import type { CollectionEntry } from "astro:content";
 
 interface Props {
-  project: CollectionEntry<"projects">["data"];
+  project: CollectionEntry<"projects">;
 }
 
 const { project } = Astro.props;
+const { data } = project;
 ---
 
 <article class="border-t border-line py-10">
   <div class="flex items-baseline justify-between gap-4">
-    <h3 class="font-serif text-2xl">{project.title}</h3>
+    <h3 class="font-serif text-2xl">
+      <a href={`/projects/${project.id}`} class="hover:text-muted transition-colors">
+        {data.title}
+      </a>
+    </h3>
     <span class="shrink-0 text-sm text-muted">
-      {project.inProgress ? "In progress" : project.year}
+      {data.inProgress ? "In progress" : data.year}
     </span>
   </div>
 
-  <p class="mt-1 text-base text-muted">{project.subtitle}</p>
+  <p class="mt-1 text-base text-muted">{data.subtitle}</p>
 
-  <p class="mt-4 text-base leading-relaxed">{project.description}</p>
+  <p class="mt-4 text-base leading-relaxed">{data.description}</p>
 
   <div class="mt-5 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
     {
-      project.links.map((l) => (
+      data.links.map((l) => (
         <a
           href={l.href}
           class="border-b border-line pb-0.5 transition-colors hover:border-fg"
@@ -31,6 +36,6 @@ const { project } = Astro.props;
         </a>
       ))
     }
-    <span class="text-muted">{project.tags.join(" · ")}</span>
+    <span class="text-muted">{data.tags.join(" · ")}</span>
   </div>
 </article>

@@ -13,6 +13,6 @@ const featured = (await getCollection("projects"))
   </h2>
 
   <div class="mt-6">
-    {featured.map((p) => <ProjectCard project={p.data} />)}
+    {featured.map((p) => <ProjectCard project={p} />)}
   </div>
 </section>
