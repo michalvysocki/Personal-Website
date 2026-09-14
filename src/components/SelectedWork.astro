@@ -1,8 +1,10 @@
 ---
-import { projects } from "../data/projects";
+import { getCollection } from "astro:content";
 import ProjectCard from "./ProjectCard.astro";
 
-const featured = projects.filter((p) => p.featured);
+const featured = (await getCollection("projects"))
+  .filter((p) => p.data.featured)
+  .sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
 ---
 
 <section class="mx-auto max-w-2xl px-6 py-16">
@@ -11,6 +13,6 @@ const featured = projects.filter((p) => p.featured);
   </h2>
 
   <div class="mt-6">
-    {featured.map((p) => <ProjectCard project={p} />)}
+    {featured.map((p) => <ProjectCard project={p.data} />)}
   </div>
 </section>
