@@ -10,7 +10,7 @@ const projects = (await getCollection("projects")).sort((a, b) => a.data.order -
   <section class="mx-auto max-w-2xl px-6 py-16">
     <h1 class="font-serif text-4xl">Projects</h1>
 
-    <div class="mt-10">
+    <div class="mt-10 border-b border-line">
       {projects.map((p) => <ProjectCard project={p} />)}
     </div>
   </section>

@@ -12,11 +12,11 @@ const featured = (await getCollection("projects"))
     Selected Work
   </h2>
 
-  <div class="mt-6">
+  <div class="mt-6 border-b border-line">
     {featured.map((p) => <ProjectCard project={p} />)}
   </div>
 
-    <p class="mt-8 text-sm">
+    <p class="mt-6 text-sm">
       <a
         href="/projects"
         class="border-b border-line pb-0.5 transition-colors hover:border-fg"
