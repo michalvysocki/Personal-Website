@@ -78,6 +78,8 @@ const ogImage = new URL("/og.png", Astro.site);
         );
 
         els.forEach((el) => io.observe(el));
+      } else {
+        els.forEach((el) => el.classList.add("is-visible"));
       }
     </script>
   </body>
