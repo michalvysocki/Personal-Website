@@ -2,6 +2,7 @@ export type Role = {
   org: string;
   title: string;
   period: string;
+  current?: boolean;
   summary: string;
 };
 
@@ -10,6 +11,7 @@ export const experience: Role[] = [
     org: "Hertz New Technologies",
     title: "Junior ML Engineer",
     period: "Sep 2026 — present",
+    current: true,
     summary:
       "Machine learning for autonomous systems and counter-UAS: multimodal detection, computer vision, prediction, and sensor data.",
   },

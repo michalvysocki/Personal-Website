@@ -37,6 +37,7 @@ const ogImage = new URL("/og.png", Astro.site);
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="sitemap" href="/sitemap-index.xml" />
         <script
+      is:inline
       type="application/ld+json"
       set:html={JSON.stringify({
         "@context": "https://schema.org",
@@ -45,7 +46,7 @@ const ogImage = new URL("/og.png", Astro.site);
         url: "https://michalwysocki.com",
         jobTitle: "Machine Learning Engineer",
         worksFor: { "@type": "Organization", name: "Hertz New Technologies" },
-        alumniOf: {
+        affiliation: {
           "@type": "CollegeOrUniversity",
           name: "Rzeszów University of Technology",
         },
