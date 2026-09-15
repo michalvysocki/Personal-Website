@@ -36,8 +36,8 @@ missing or mistyped field fails the build. Set `featured: true` to show it on th
 homepage; `order` controls sorting.
 
 **A role or degree** — append to `src/data/experience.ts` or
-`src/data/education.ts`. The first entry in `experience.ts` is the one shown in the
-"Currently" block on the homepage, so new roles go at the top.
+`src/data/education.ts`. The entry shown in "Currently" block on
+the homepage is the one with 'current: true' value.
 
 **Design tokens** — colors and fonts live in the `@theme` block in
 `src/styles/global.css`. Change them there, not in component classes.
