@@ -36,6 +36,25 @@ const ogImage = new URL("/og.png", Astro.site);
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="sitemap" href="/sitemap-index.xml" />
+        <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Person",
+        name: "Michał Wysocki",
+        url: "https://michalwysocki.com",
+        jobTitle: "Machine Learning Engineer",
+        worksFor: { "@type": "Organization", name: "Hertz New Technologies" },
+        alumniOf: {
+          "@type": "CollegeOrUniversity",
+          name: "Rzeszów University of Technology",
+        },
+        sameAs: [
+          "https://github.com/michalvysocki",
+          "https://www.linkedin.com/in/michalvysocki/",
+        ],
+      })}
+    />
   </head>
   <body>
     <Nav />
