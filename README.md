@@ -1,43 +1,48 @@
-# Astro Starter Kit: Minimal
+# michalwysocki.com
 
-```sh
-npm create astro@latest -- --template minimal
+Personal site — projects, experience, and research interests.
+Built with [Astro](https://astro.build) and Tailwind CSS, deployed to GitHub Pages.
+
+## Development
+
+```bash
+npm install
+npm run dev      # http://localhost:4321
+npm run build    # output to ./dist
+npm run preview  # serve the production build locally
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Requires Node 22 or newer.
 
-## 🚀 Project Structure
+## Structure
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```
+src/
+  components/    UI components (Hero, ProjectCard, Experience, ...)
+  content/
+    projects/    one .mdx file per project — frontmatter + long-form write-up
+  data/          structured data with no long-form content (experience, education)
+  layouts/       Base.astro — head, metadata, nav, footer
+  pages/         routes: /, /projects, /projects/[slug], /cv, /about, 404
+  styles/        global.css — design tokens in @theme
+public/          static assets served as-is (favicons, og.png, CNAME, robots.txt)
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Adding content
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+**A project** — create `src/content/projects/<slug>.mdx`. The filename becomes the
+URL. Frontmatter is validated against the schema in `src/content.config.ts`, so a
+missing or mistyped field fails the build. Set `featured: true` to show it on the
+homepage; `order` controls sorting.
 
-Any static assets, like images, can be placed in the `public/` directory.
+**A role or degree** — append to `src/data/experience.ts` or
+`src/data/education.ts`. The first entry in `experience.ts` is the one shown in the
+"Currently" block on the homepage, so new roles go at the top.
 
-## 🧞 Commands
+**Design tokens** — colors and fonts live in the `@theme` block in
+`src/styles/global.css`. Change them there, not in component classes.
 
-All commands are run from the root of the project, from a terminal:
+## Deployment
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Pushing to `main` triggers `.github/workflows/deploy.yml`, which builds the site and
+publishes it to GitHub Pages. The custom domain is set by `public/CNAME`.
